@@ -52,7 +52,7 @@
                             class="	fa fa-upload"></i> 上传</a>
                     <a href="{{ url('work/test') }}"
                         class="list-group-item  {{ Request::getPathInfo() == '/work/test' ? 'active' : '' }} "><i
-                            class="	fa fa-bug"></i> Test1</a>
+                            class="	fa fa-bug"></i> Test</a>
                 </div>
             </div>
             <div class="col-md-10">
