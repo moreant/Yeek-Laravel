@@ -38,7 +38,11 @@
     @show
 
     <main class="container-fluid w-75 flex-md-grow-1">
+
+       
+
         <div class="row">
+            <!-- 侧边栏 -->
             <div class="col-md-2 mb-3">
                 <div class="list-group">
                     <a href="{{ url('work/') }}"
@@ -55,8 +59,23 @@
                             class="	fa fa-bug"></i> Test</a>
                 </div>
             </div>
+            <!-- end 侧边栏 -->
+
+            <!-- 主显示区 -->
             <div class="col-md-10">
-                @yield('alert')
+
+                <!-- 提示框 -->
+                @if(Session::has('title'))
+                @component('common.message',[
+                'type' => Session::get('type'),
+                'title' => Session::get('title'),
+                'msg' => Session::get('msg')
+                ])
+                @endcomponent
+                @endif
+                <!-- end 提示框 -->
+
+                <!-- 正文 -->
                 @section('content')
                 <div class="card">
                     <div class="card-header h4">全部作业</div>
@@ -103,9 +122,11 @@
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 </div>
+                <!-- end 正文 -->
+
+                <!-- 分页 -->
                 <div class="flex d-flex flex-row-reverse mt-3">
                     <ul class="pagination mr-0">
                         <li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -115,12 +136,16 @@
                         <li class="page-item"><a class="page-link" href="#">5</a></li>
                     </ul>
                 </div>
+                <!-- end 分页 -->
+
                 @show
+
             </div>
+            <!-- end 主显示区 -->
         </div>
     </main>
 
-
+    <!-- 页脚 -->
     @section('footer')
     <footer class="jumbotron" style="margin:0;">
         <div class="container">
@@ -128,6 +153,8 @@
         </div>
     </footer>
     @show
+    <!-- end 页脚 -->
+
 
     <script src="/static/jquery.min.js"></script>
     <script src="/static/bootstrap/js/bootstrap.min.js"></script>

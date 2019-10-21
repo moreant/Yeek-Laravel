@@ -38,9 +38,18 @@ class WorkController extends Controller
                 $ext = $file->getClientOriginalExtension();
                 $type = $file->getClientMimeType();
                 $realPath = $file->getRealPath();
-                Storage::disk('uploads')->put($ori, file_get_contents($realPath));
+                Storage::disk('public')->put($ori, file_get_contents($realPath));
+                return redirect('work/upload/')->with([
+                    'type' => 'success',
+                    'title' => '成功',
+                    'msg' => '文件上传成功',
+                ]);;
+                $fileName = Storage::putFile('photos', $file);
+                echo $fileName;
+                return Storage::download($fileName, 'download');
             }
         }
+
         return view('work.upload', [
             'title' => '上传作业',
         ]);
@@ -70,10 +79,14 @@ class WorkController extends Controller
 
     public function test()
     {
-        return redirect('work/')->with([
-            'type' => 'success',
-            'title' => '成功',
-            'msg' => '作业添加成功',
-        ]);
+
+
+        // return Storage::download('');
+    }
+
+    public function info($id)
+    {
+        // dd($request);
+        return response()->json(Work::with('course')->find($id));
     }
 }

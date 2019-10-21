@@ -17,9 +17,10 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'web'], function () {
     Route::prefix('work')->group(function () {
-        Route::get('/', 'WorkController@index');
+        Route::get('/', 'WorkController@index')->name('work');
         Route::get('/create', 'WorkController@create');
         Route::get('/save', 'WorkController@save');
+        Route::any('/info/{id}', 'WorkController@info');
         Route::any('/upload', 'WorkController@upload');
         Route::get('/test', 'WorkController@test');
     });
