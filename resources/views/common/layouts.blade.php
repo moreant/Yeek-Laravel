@@ -24,13 +24,19 @@
         body {
             font-family: 'Noto Sans SC', sans-serif;
         }
+
+        .banner {
+            /* 这个是我偷 next 的，Link=>http://theme-next.iissnan.com/ */
+            background: url('{{ asset('img/banner-2.jpg') }}') 0 80%;
+            background-size: cover;
+        }
     </style>
     @show
 </head>
 
 <body class="h-100 d-md-flex flex-md-column">
     @section('header')
-    <header class="jumbotron">
+    <header class="jumbotron banner text-light text-center">
         <div class="container-fluid w-75">
             <h2>Yeek - 作业管理<br><small class="text-capitalize lead font-weight-bold">alpha</small></h2>
         </div>
@@ -39,7 +45,7 @@
 
     <main class="container-fluid w-75 flex-md-grow-1">
 
-       
+
 
         <div class="row">
             <!-- 侧边栏 -->
