@@ -2,14 +2,13 @@
 
 @section('link')
 <link rel="stylesheet" href="{{asset('/static/fileinput/css/fileinput.css')}}">
+{{-- csrf 令牌 --}}
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
 @section('title')
 {{ $title }}
 @endsection
-
-
-
 
 @section('content')
 
@@ -17,13 +16,12 @@
 <div class="container">
     <!-- 模态框 -->
     <div class="modal fade" id="modal">
-        <div class="modal-dialog" style="margin-top: 30vh;max-width:25vw;">
+        <div class="modal-dialog" style="margin-top: 30vh;min-width:40%">
             <div class="modal-content">
 
                 <!-- 模态框头部 -->
                 <div class="modal-header">
                     <h4 class="modal-title">查询中。。。</h4>
-                    
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -31,10 +29,10 @@
                 <div class="modal-body">
                     <div class="h3"></div>
                     <br>
-                    <form class="p-3" method="post" action="" enctype="multipart/form-data">
-                        {{ csrf_field() }}
-                        <input id="input-work" type="file" class="file" data-preview-file-type="text">
-                    </form>
+                    <div class="p-3">
+                        <input id="input-work" name='file' type="file">
+                        <h4 id="modal-status" class="mt-3"></h4>
+                    </div>
                 </div>
 
                 <!-- 模态框底部 -->
@@ -82,46 +80,64 @@
     </div>
 </div>
 
+<!-- 分页 -->
 <div class="flex d-flex flex-row-reverse mt-3">
     {{ $works->onEachSide(5)->links() }}
 </div>
+<!-- end分页 -->
+
 @endsection
 
 @section('javasctipt')
 @parent
-<script src=" {{ asset("static/fileinput/js/fileinput.min.js") }} "></script>
+
+<script src=" {{ asset("static/fileinput/js/fileinput.js") }} "></script>
 <script src=" {{ asset("static/fileinput/js/zh.js") }} "></script>
+
 <script>
-    $("#input-work").fileinput({
-                theme: 'fas',
-                language: 'zh',
-                uploadUrl: 'file/receive.php',
-                uploadAsync: true, //默认异步上传
-                // showUpload: false, //是否显示上传按钮
-                // showRemove: false, //显示移除按钮
-                allowedFileExtensions: ['txt', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'zip', 'jpg', 'rar'],
-                showPreview: false, //是否显示预览
-                showCaption: true, //是否显示标题
-                maxFileSize: 5120, // 限制大小
-                enctype: 'multipart/form-data',
-                browseClass: "btn btn-primary", //按钮样式
-            }).on("filepreajax", function() {
-                $("#uploadModalStatus").text("文件上传中。。。");
-            }).on("fileuploaded", function(event, data, previewId, index) {
-                alert(data.response.request);
-                $("#uploadModalStatus").text(data.response.request);
-            });
-    function modal(i){
+    var fileinput =  $("#input-work")
+    function modal(i) {
         $(".modal-title").text('');
         $(".modal-body .h3").html('');
-        $.get("work/info/"+i,
-        function(data){
-            $(".modal-title").text('上交');
-            $(".modal-body .h3").html(data.course.icon+' '+data.course.name+' - '+data.name);
-            console.log(data);
-        });
+        $.get("work/info/" + i,
+            function (data) {
+                $(".modal-title").text('上交');
+                $(".modal-body .h3").html(data.course.icon + ' ' + data.course.name + ' - ' + data.name);
+                fileinput.fileinput('refresh', {
+                    uploadUrl: '{{url('work/uploadFile')}}',
+                     uploadExtraData: { 'info': JSON.stringify(data)}
+                }).fileinput('clear');
+
+            });
     }
 
-    
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    fileinput.fileinput({
+        theme: 'fas',
+        language: 'zh',
+        uploadUrl: '{{url('work/uploadFile')}}',
+        uploadAsync: true, //默认异步上传
+        // allowedFileExtensions: ['txt', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'zip', 'jpg', 'rar'],
+        showPreview: false, //是否显示预览
+        showCaption: true, //是否显示标题
+        maxFileSize: 5120, // 限制大小
+        enctype: 'multipart/form-data',
+        browseClass: "btn btn-primary", //按钮样式
+    });
+
+    fileinput.on("filepreajax", function () {
+        $("#modal-status").text("文件上传中。。。");
+    });
+
+    fileinput.on("fileuploaded", function (event, data, previewId, index) {
+        // alert(data.response.result);
+        $("#modal-status").text(data.response.result);
+    });
+
 </script>
 @endsection

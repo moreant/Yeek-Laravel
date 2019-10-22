@@ -49,7 +49,6 @@ class WorkController extends Controller
                 return Storage::download($fileName, 'download');
             }
         }
-
         return view('work.upload', [
             'title' => '上传作业',
         ]);
@@ -76,11 +75,8 @@ class WorkController extends Controller
         }
     }
 
-
     public function test()
     {
-
-
         // return Storage::download('');
     }
 

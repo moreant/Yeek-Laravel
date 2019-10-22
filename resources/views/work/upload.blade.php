@@ -15,7 +15,6 @@
             <input class="" type="file" name="work" id="work">
             <button type="submit" class="btn btn-primary">上交</button>
         </form>
-
     </div>
 </div>
 @endsection
