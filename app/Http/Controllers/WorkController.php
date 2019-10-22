@@ -77,7 +77,7 @@ class WorkController extends Controller
 
     public function test()
     {
-        // return Storage::download('');
+        return Storage::download('work/92_swift/test.txt');
     }
 
     public function info($id)

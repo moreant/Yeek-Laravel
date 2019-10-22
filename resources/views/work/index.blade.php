@@ -107,7 +107,7 @@
                     uploadUrl: '{{url('work/uploadFile')}}',
                      uploadExtraData: { 'info': JSON.stringify(data)}
                 }).fileinput('clear');
-
+                $("#modal-status").text('');
             });
     }
 
