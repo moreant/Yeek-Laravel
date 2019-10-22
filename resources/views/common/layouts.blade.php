@@ -9,7 +9,7 @@
     {{-- <script src="https://kit.fontawesome.com/7ff774316b.js" crossorigin="anonymous"></script> --}}
     <link href="https://cdn.bootcss.com/font-awesome/5.10.2/css/all.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/font-awesome/5.10.2/js/all.js"></script>
-    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('/static/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap">
     @section('link')
@@ -156,11 +156,12 @@
     <!-- end 页脚 -->
 
 
-    <script src="/static/jquery.min.js"></script>
-    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{asset('/static/jquery.min.js')}}"></script>
+    <script src="{{asset('/static/bootstrap/js/bootstrap.min.js')}}"></script>
     @section('javasctipt')
 
     @show
+
 </body>
 
 </html>

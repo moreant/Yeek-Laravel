@@ -83,8 +83,12 @@
 @endsection
 
 @section('javasctipt')
+<script src=" {{ asset("static/fileinput/js/fileinput.min.js") }} "></script>
 <script>
+
     function modal(i){
+        $(".modal-title").text('');
+        $(".modal-body .h3").html('');
         $.get("work/info/"+i,
         function(data){
             $(".modal-title").text('上交');
