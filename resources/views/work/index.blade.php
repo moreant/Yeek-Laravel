@@ -1,7 +1,8 @@
-@extends('common.layouts')
+@extends('layouts.work')
 
 @section('link')
 <link rel="stylesheet" href="{{asset('/static/fileinput/css/fileinput.css')}}">
+
 {{-- csrf 令牌 --}}
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
@@ -10,41 +11,33 @@
 {{ $title }}
 @endsection
 
-@section('content')
+{{-- 模态框 --}}
+@section('modal')
+@component('common.modal')
 
-<!-- 模态框 -->
-<div class="container">
-    <!-- 模态框 -->
-    <div class="modal fade" id="modal">
-        <div class="modal-dialog" style="margin-top: 30vh;min-width:40%">
-            <div class="modal-content">
+@slot('header')
+<h4 class="modal-title">查询中。。。</h4>
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+@endslot
 
-                <!-- 模态框头部 -->
-                <div class="modal-header">
-                    <h4 class="modal-title">查询中。。。</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- 模态框主体 -->
-                <div class="modal-body">
-                    <div class="h3"></div>
-                    <br>
-                    <div class="p-3">
-                        <input id="input-work" name='file' type="file">
-                        <h4 id="modal-status" class="mt-3"></h4>
-                    </div>
-                </div>
-
-                <!-- 模态框底部 -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">关闭</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
+@slot('body')
+<div class="h3"></div>
+<br>
+<div class="p-3">
+    <input id="input-work" name='file' type="file">
+    <h4 id="modal-status" class="mt-3"></h4>
 </div>
-<!-- end 模态框 -->
+@endslot
+
+@slot('footer')
+<button type="button" class="btn btn-outline-danger" data-dismiss="modal">关闭</button>
+@endslot
+
+@endcomponent
+@endsection
+
+{{-- 正文 --}}
+@section('content')
 
 <div class="card">
     <div class="card-header h4">{{ $title }}</div>
@@ -57,8 +50,8 @@
                     <th>开始</th>
                     <th>截止</th>
                     <th>备注</th>
-                    <th  class="text-center">上交</th>
-                    <th  class="text-center">选项</th>
+                    <th class="text-center">操作</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -69,14 +62,12 @@
                     <td>{{ substr($work->start,5) }}</td>
                     <td>{{ substr($work->end,5) }}</td>
                     <td>{{ $work->remarks }}</td>
-                    <td  class="text-center">@if ($work->need_upload == 1)
-                        <a href="#" onclick="modal({{ $work->id }})" data-toggle="modal" data-target="#modal">上交</a> /
-                        <a href="#">未交</a>
+                    <td class="text-center">@if ($work->upload == 1)
+                        <a href="#" onclick="workModal({{ $work->id }})" data-toggle="modal" data-target="#modal">
+                            上交</a>
+                        / <a href="#" onclick="notWorkModal({{ $work->id }})" data-toggle="modal" data-target="#modal">
+                            未交</a>
                         @endif
-                    </td>
-                    <td  class="text-center">
-                        <a href="">删除</a> /
-                        <a href="">修改</a>
                     </td>
                 </tr>
                 @endforeach
@@ -100,8 +91,15 @@
 <script src=" {{ asset("static/fileinput/js/zh.js") }} "></script>
 
 <script>
+    // 设置 CSRF 令牌
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    // 弹出上传框
     var fileinput =  $("#input-work")
-    function modal(i) {
+    function workModal(i) {
         $(".modal-title").text('');
         $(".modal-body .h3").html('');
         $.get("work/info/" + i,
@@ -116,12 +114,7 @@
             });
     }
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
+    // 初始化上传
     fileinput.fileinput({
         theme: 'fas',
         language: 'zh',
@@ -134,11 +127,13 @@
         enctype: 'multipart/form-data',
         browseClass: "btn btn-primary", //按钮样式
     });
-
+    
+    // ajax 上传中时
     fileinput.on("filepreajax", function () {
         $("#modal-status").text("文件上传中。。。");
     });
-
+    
+    // 上传完成时
     fileinput.on("fileuploaded", function (event, data, previewId, index) {
         // alert(data.response.result);
         $("#modal-status").text(data.response.result);
