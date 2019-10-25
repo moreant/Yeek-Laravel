@@ -25,12 +25,13 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('/test', 'WorkController@test');
         Route::get('/info/{id}', 'WorkController@info');
         Route::any('/uploadFile','FileController@input');
+        Route::any('/download/{dir}','FileController@download');
     });
 });
 
-Route::any('/t', 'WorkController@test');
+Route::any('/t', 'FileController@download');
 
-Route::any('/fa', 'FileUploadController@add');
+Route::any('/t2', 'FileController@zip');
 
 Auth::routes();
 

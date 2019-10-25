@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use RecursiveIteratorIterator;
+use RecursiveDirectoryIterator;
+use ZipArchive;
 
 class FileController extends Controller
 {
@@ -25,5 +28,42 @@ class FileController extends Controller
         } else {
             return response()->json(['result' => '上传失败', 'code' => $request->file('')]);
         }
+    }
+
+    public function download(Request $request)
+    {
+        $dir = $request->dir;
+        $files = Storage::files('work/' . $dir);
+        if ($files) {
+            return response()->download($this->zip($dir));
+        } else {
+            return redirect('work/console')->with([
+                'type' => 'danger',
+                'title' => '失败',
+                'msg' => '文件夹为空或不存在',
+            ]);
+        }
+    }
+
+    public function zip($path, $zip_file = '')
+    {
+
+        $zip = new ZipArchive();
+        if (!$zip_file) {
+            $zip_file = storage_path('app/work/download/' . $path . '.zip');
+        }
+        $path = storage_path('app/work/' . $path);
+        $zip->open($zip_file, ZipArchive::CREATE | ZipArchive::OVERWRITE);
+        $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path));
+        foreach ($files as $file) {
+            if (!$file->isDir()) {
+                $filePath = $file->getRealPath();
+                // 用 substr/strlen 获取文件扩展名
+                $relativePath = $path . '/' . substr($filePath, strlen($path) + 1);
+                $zip->addFile($filePath, $relativePath);
+            }
+        }
+        $zip->close();
+        return $zip_file;
     }
 }

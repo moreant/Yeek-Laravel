@@ -109,7 +109,7 @@
                   </div>' : '' !!}</td> --}}
             <td>
                 @if ($work->upload)
-                需要
+                <a href="{{url('work/download').'/'.$work->id.'_'.$work->course->call_name}}">需要</a>
                 @endif
             </td>
             <td>
