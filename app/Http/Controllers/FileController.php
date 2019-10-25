@@ -45,13 +45,14 @@ class FileController extends Controller
         }
     }
 
-    public function zip($path, $zip_file = '')
+    public function zip($path)
     {
-
         $zip = new ZipArchive();
-        if (!$zip_file) {
-            $zip_file = storage_path('app/work/download/' . $path . '.zip');
+        $downPath = storage_path('app/work/download/');
+        if (!file_exists($downPath)) {
+            mkdir($downPath);
         }
+        $zip_file = $downPath . $path . '.zip';
         $path = storage_path('app/work/' . $path);
         $zip->open($zip_file, ZipArchive::CREATE | ZipArchive::OVERWRITE);
         $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path));
