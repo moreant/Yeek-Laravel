@@ -20,7 +20,6 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('/', 'WorkController@index')->name('work');
         Route::get('/create', 'WorkController@create');
         Route::get('/save', 'WorkController@save');
-        Route::any('/upload', 'WorkController@upload');
         Route::get('/test', 'WorkController@test');
         Route::get('/info/{id}', 'WorkController@info');
         Route::any('/uploadFile','FileController@input');
@@ -30,3 +29,7 @@ Route::group(['middleware' => 'web'], function () {
 Route::any('/t', 'WorkController@test');
 
 Route::any('/fa', 'FileUploadController@add');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

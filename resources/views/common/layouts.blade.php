@@ -57,9 +57,6 @@
                     <a href="{{ url('work/create') }}"
                         class="list-group-item  {{ Request::getPathInfo() == '/work/create' ? 'active' : '' }} "><i
                             class="fa fa-plus-square"></i> 加入</a>
-                    <a href="{{ url('work/upload') }}"
-                        class="list-group-item  {{ Request::getPathInfo() == '/work/upload' ? 'active' : '' }} "><i
-                            class="	fa fa-upload"></i> 上传</a>
                     <a href="{{ url('work/test') }}"
                         class="list-group-item  {{ Request::getPathInfo() == '/work/test' ? 'active' : '' }} "><i
                             class="	fa fa-bug"></i> Test</a>

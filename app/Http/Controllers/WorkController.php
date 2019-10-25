@@ -28,32 +28,6 @@ class WorkController extends Controller
         ]);
     }
 
-    public function upload(Request $request)
-    {
-        if ($request->isMethod('POST')) {
-            $file = $request->file('work');
-            if ($file->isValid()) {
-                $ori = $file->getClientOriginalName();
-                // 扩展名
-                $ext = $file->getClientOriginalExtension();
-                $type = $file->getClientMimeType();
-                $realPath = $file->getRealPath();
-                Storage::disk('public')->put($ori, file_get_contents($realPath));
-                return redirect('work/upload/')->with([
-                    'type' => 'success',
-                    'title' => '成功',
-                    'msg' => '文件上传成功',
-                ]);;
-                $fileName = Storage::putFile('photos', $file);
-                echo $fileName;
-                return Storage::download($fileName, 'download');
-            }
-        }
-        return view('work.upload', [
-            'title' => '上传作业',
-        ]);
-    }
-
     public function save(Request $request)
     {
         $data = $request->input('work');

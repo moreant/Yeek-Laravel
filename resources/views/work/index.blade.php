@@ -57,7 +57,8 @@
                     <th>开始</th>
                     <th>截止</th>
                     <th>备注</th>
-                    <th>选项</th>
+                    <th  class="text-center">上交</th>
+                    <th  class="text-center">选项</th>
                 </tr>
             </thead>
             <tbody>
@@ -65,13 +66,17 @@
                 <tr>
                     <td>{{ $work->id }}</td>
                     <td>{!! $work->course->icon !!}{{ $work->name }}</td>
-                    <td>{{ $work->start }}</td>
-                    <td>{{ $work->end }}</td>
+                    <td>{{ substr($work->start,5) }}</td>
+                    <td>{{ substr($work->end,5) }}</td>
                     <td>{{ $work->remarks }}</td>
-                    <td>@if ($work->need_upload == 1)
+                    <td  class="text-center">@if ($work->need_upload == 1)
                         <a href="#" onclick="modal({{ $work->id }})" data-toggle="modal" data-target="#modal">上交</a> /
                         <a href="#">未交</a>
                         @endif
+                    </td>
+                    <td  class="text-center">
+                        <a href="">删除</a> /
+                        <a href="">修改</a>
                     </td>
                 </tr>
                 @endforeach
