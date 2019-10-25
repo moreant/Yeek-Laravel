@@ -107,16 +107,16 @@
             {{-- <td>{!! $work->upload == 0 ? '<div class="progress">
                     <div class="progress-bar bg-success" style="width:40%"><a class="text-light" href="#">4/56</a></div>
                   </div>' : '' !!}</td> --}}
-            <td>{!! $work->upload == 0 ? '需要' : '' !!}</td>
+            <td>
+                @if ($work->upload)
+                需要
+                @endif
+            </td>
             <td>
                 <a href="javascript:void(0)" onclick="update({{ $work->id }})">
                     修改</a>
                 / <a href="#" onclick="del({{ $work->id }})" data-toggle="modal" data-target="#modal">
                     删除</a>
-                @if ($work->need_upload == 1)
-                / <a href="#" onclick="download({{ $work->id }})">
-                    下载</a>
-                @endif
             </td>
         </tr>
         @endforeach

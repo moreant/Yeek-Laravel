@@ -57,7 +57,7 @@
                             class="fa fa-list"></i> 全部</a>
                     <a href="{{ url('work/console') }}"
                         class="list-group-item  {{ Request::getPathInfo() == '/work/console' ? 'active' : '' }} "><i
-                            class="fa fa-plus-square"></i> 操作台</a>
+                            class="fa fa-plus-square"></i> 控制台</a>
                     <a href="{{ url('work/test') }}"
                         class="list-group-item  {{ Request::getPathInfo() == '/work/test' ? 'active' : '' }} "><i
                             class="	fa fa-bug"></i> Test</a>
