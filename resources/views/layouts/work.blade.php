@@ -37,7 +37,7 @@
     @section('header')
     <header class="jumbotron banner text-light text-center">
         <div class="container-fluid w-75">
-            <h2>Yeek - 作业管理<br><small class="text-capitalize lead font-weight-bold">alpha</small></h2>
+            <h2>Yeek - 作业管理<br><small class="text-capitalize lead font-weight-bold">beta</small></h2>
         </div>
     </header>
     @show
