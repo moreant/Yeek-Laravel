@@ -61,7 +61,7 @@ class FileController extends Controller
                 $filePath = $file->getRealPath();
                 // 用 substr/strlen 获取文件扩展名
                 $relativePath = $path . '/' . substr($filePath, strlen($path) + 1);
-                $zip->addFile($filePath, $relativePath);
+                $zip->addFile($filePath, $relativePath);            
             }
         }
         $zip->close();
