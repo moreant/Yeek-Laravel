@@ -29,6 +29,8 @@ Route::group(['middleware' => 'web'], function () {
     });
 });
 
+Route::view('/ftp', 'ftp');
+
 Route::any('/t', 'FileController@download');
 
 Route::any('/t2', 'FileController@zip');
