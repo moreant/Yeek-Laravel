@@ -39,7 +39,7 @@
     @section('header')
     <header class="jumbotron banner text-light text-center">
         <div class="container-fluid w-75">
-            <h2>Yeek - FTP列表<br><small class="text-capitalize lead font-weight-bold">Alpha</small></h2>
+            <h2>FTP列表<br><small class="text-capitalize lead font-weight-bold">Alpha</small></h2>
         </div>
     </header>
     @show
