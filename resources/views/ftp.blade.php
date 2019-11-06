@@ -57,9 +57,9 @@
                     <a href="{{ url('ftp/') }}"
                         class="list-group-item {{ Request::getPathInfo() == '/ftp' ? 'active' : '' }} "><i
                             class="fa fa-list"></i> 全部</a>
-                    <a href="{{ url('ftp/console') }}"
+                    {{-- <a href="{{ url('ftp/console') }}"
                         class="list-group-item  {{ Request::getPathInfo() == '/work/console' ? 'active' : '' }} "><i
-                            class="fa fa-plus-square"></i> 控制台</a>
+                            class="fa fa-plus-square"></i> 控制台</a> --}}
                 </div>
             </div>
             <!-- end 侧边栏 -->
