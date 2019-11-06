@@ -26,12 +26,13 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('/info/{id}', 'WorkController@info');
         Route::any('/uploadFile','FileController@input');
         Route::any('/download/{dir}','FileController@download');
+        Route::any('/fileList','FileController@getFileList');
     });
 });
 
 Route::view('/ftp', 'ftp');
 
-Route::any('/t', 'FileController@download');
+Route::any('/t', 'FileController@getFileList');
 
 Route::any('/t2', 'FileController@zip');
 

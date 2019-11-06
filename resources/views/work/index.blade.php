@@ -23,10 +23,11 @@
 @slot('body')
 <div class="h3"></div>
 <br>
-<div class="p-3">
+<div id="inputBox" class="p-3">
     <input id="input-work" name='file' type="file">
     <h4 id="modal-status" class="mt-3"></h4>
 </div>
+<div id="ListBox"></div>
 @endslot
 
 @slot('footer')
@@ -102,6 +103,7 @@
     function workModal(i) {
         $(".modal-title").text('');
         $(".modal-body .h3").html('');
+        $("#inputBox").show();
         $.get("work/info/" + i,
             function (data) {
                 $(".modal-title").text('上交');
@@ -111,6 +113,30 @@
                      uploadExtraData: { 'info': JSON.stringify(data)}
                 }).fileinput('clear');
                 $("#modal-status").text('');
+            });
+    }
+
+    function notWorkModal(i){
+        $(".modal-title").text('未交');
+        $(".modal-body .h3").html('');
+        $("#inputBox").hide();
+        $('#ListBox').html('')
+        $.get("work/info/" + i,
+            function (data) {
+                $(".modal-body .h3").html(data.course.icon + ' ' + data.course.name + ' - ' + data.name);
+                fileinput.fileinput('refresh', {
+                    uploadUrl: '{{url('work/uploadFile')}}',
+                     uploadExtraData: { 'info': JSON.stringify(data)}
+                }).fileinput('clear');
+                $.post("work/fileList/", {
+                    'info': JSON.stringify(data)
+                },
+                function (data) {
+                    $.each(data.fileList, function (i, val) {
+                        $('#ListBox').append('<p>' + val + '</p>')
+                    });
+                    console.log(data)
+                });
             });
     }
 
