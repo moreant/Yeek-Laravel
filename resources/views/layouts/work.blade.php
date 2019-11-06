@@ -30,8 +30,6 @@
             background-size: cover;
 
         }
-
-
     </style>
     @show
 </head>
@@ -45,7 +43,7 @@
     @section('header')
     <header class="jumbotron banner text-light text-center">
         <div class="container-fluid w-75">
-            <h2>作业管理<br><small class="text-capitalize lead font-weight-bold">beta</small></h2>
+            <h2>作业管理<br><small class="text-capitalize lead font-weight-bold">v0.1</small></h2>
         </div>
     </header>
     @show
@@ -63,7 +61,7 @@
                     <a href="{{ url('work/') }}"
                         class="list-group-item {{ Request::getPathInfo() == '/work' ? 'active' : '' }} "><i
                             class="fa fa-list"></i> 全部</a>
-                    <a href="{{ url('work/console') }}"
+                    <a href="{{ url('work/console') }}" onclick="quanxian()"
                         class="list-group-item  {{ Request::getPathInfo() == '/work/console' ? 'active' : '' }} "><i
                             class="fa fa-plus-square"></i> 控制台</a>
                     <a href="{{ url('work/test') }}"
@@ -100,9 +98,11 @@
 
     <!-- 页脚 -->
     @section('footer')
-    <footer class="jumbotron" style="margin:0;">
+    <footer class="jumbotron" style="margin:0;padding:2rem 1rem; max-height:300px;">
         <div class="container">
-            <span><a href="http://www.yeek.top">Yeek.top</a>@2019</span>
+            <a href="http://www.yeek.top">Yeek.top</a>@2019<br>
+            ICP主体备案号：<a class="text-secondary" href="http://www.yeek.top">粤ICP备19003211号</a><br>
+            粤公网安备：<a class="text-secondary" href="http://www.yeek.top">44011102002523</a><br>
         </div>
     </footer>
     @show
@@ -111,6 +111,16 @@
     <script src="https://cdn.bootcss.com/font-awesome/5.10.2/js/all.js"></script>
     <script src="{{asset('/static/jquery.min.js')}}"></script>
     <script src="{{asset('/static/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script>
+        function quanxian(){
+            var input = prompt('权限认证');
+            if(input != 'aaa'){
+                var e = event;
+                alert('失败')
+                e.preventDefault();
+            }
+        }
+    </script>
     @section('javasctipt')
 
     @show

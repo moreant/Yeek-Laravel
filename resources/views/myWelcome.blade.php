@@ -84,15 +84,12 @@
 
     <div class="content">
         <div class="title m-b-md">
-            Yeek
+            Yeek & Laravel
         </div>
 
+    
         <div class="links">
-            <a href="/ftp">FTP</a>
-        </div>
-
-        <div class="links">
-            <a href=" {{route('work')}} ">Work</a>
+            <a href=" {{route('work')}} ">进入作业管理</a>
         </div>
     </div>
     </div>
