@@ -109,6 +109,11 @@
                             <td>摄影后期（选修）</td>
                             <td>ftp://10.1.41.41/</td>
                         </tr>
+                        <tr>
+                            <td>303</td>
+                            <td>JavaScript与JQuery</td>
+                            <td>ftp://192.168.0.100/</td>
+                        </tr>
                     </tbody>
                 </table>
                 @show
