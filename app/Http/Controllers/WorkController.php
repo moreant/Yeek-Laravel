@@ -12,6 +12,16 @@ class WorkController extends Controller
 {
     public function index()
     {
+        $works = Work::orderBy('id', 'abs')->where('end', '>=', date('Y-m-d'))->with('course')->paginate(10);
+        // dd($works);
+        return view('work.index', [
+            'title' => '进行中',
+            'works' => $works,
+        ]);
+    }
+
+    public function all()
+    {
         $works = Work::orderBy('id', 'abs')->with('course')->paginate(10);
         // dd($works);
         return view('work.index', [

@@ -43,7 +43,7 @@
     @section('header')
     <header class="jumbotron banner text-light text-center">
         <div class="container-fluid w-75">
-            <h2>作业管理<br><small class="text-capitalize lead font-weight-bold">v0.1</small></h2>
+            <h2>作业管理<br><small class="text-capitalize lead font-weight-bold">v0.2</small></h2>
         </div>
     </header>
     @show
@@ -59,14 +59,21 @@
             <div class="col-md-2 mb-3">
                 <div class="list-group">
                     <a href="{{ url('work/') }}"
-                        class="list-group-item {{ Request::getPathInfo() == '/work' ? 'active' : '' }} "><i
-                            class="fa fa-list"></i> 全部</a>
+                        class="list-group-item {{ Request::getPathInfo() == '/work' ? 'active' : '' }} ">
+                        <i class="fas fa-bookmark"></i>
+                        进行中</a>
+                    <a href="{{ url('work/all') }}"
+                        class="list-group-item {{ Request::getPathInfo() == '/work/all' ? 'active' : '' }} ">
+                        <i class="fa fa-list"></i>
+                        全部</a>
                     <a href="{{ url('work/console') }}" onclick="quanxian()"
-                        class="list-group-item  {{ Request::getPathInfo() == '/work/console' ? 'active' : '' }} "><i
-                            class="fa fa-plus-square"></i> 控制台</a>
+                        class="list-group-item  {{ Request::getPathInfo() == '/work/console' ? 'active' : '' }} ">
+                        <i class="fas fa-tools"></i>
+                        控制台</a>
                     <a href="{{ url('work/test') }}"
-                        class="list-group-item  {{ Request::getPathInfo() == '/work/test' ? 'active' : '' }} "><i
-                            class="	fa fa-bug"></i> Test</a>
+                        class="list-group-item  {{ Request::getPathInfo() == '/work/test' ? 'active' : '' }} ">
+                        <i class="fa fa-bug"></i>
+                        Test</a>
                 </div>
             </div>
             <!-- end 侧边栏 -->
@@ -98,7 +105,7 @@
 
     <!-- 页脚 -->
     @component('common.footer')
-        
+
     @endcomponent
     <!-- end 页脚 -->
 
