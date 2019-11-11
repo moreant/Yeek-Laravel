@@ -19,6 +19,7 @@
                 <h4>关于</h4>
                 <ul class="list-unstyled">
                     <li><a href="https://github.com/mojuchen/Yeek-Laravel/commits/master">更新日志</a></li>
+                    <li><a href="https://github.com/mojuchen/Yeek-Laravel/commits/master">提交问题</a></li>
                     <li><a href="https://github.com/mojuchen/Yeek-Laravel">项目开源</a></li>
                 </ul>
             </div>
