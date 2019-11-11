@@ -64,9 +64,12 @@
                     <td>{{ substr($work->end,5) }}</td>
                     <td>{{ $work->remarks }}</td>
                     <td class="text-center">@if ($work->upload == 1)
+                        @if (strtotime($work->end)>strtotime(date("y-m-d")))
                         <a href="#" onclick="workModal({{ $work->id }})" data-toggle="modal" data-target="#modal">
                             上交</a>
-                        / <a href="#" onclick="notWorkModal({{ $work->id }})" data-toggle="modal" data-target="#modal">
+                        /
+                        @endif
+                        <a href="#" onclick="notWorkModal({{ $work->id }})" data-toggle="modal" data-target="#modal">
                             未交</a>
                         @endif
                     </td>
