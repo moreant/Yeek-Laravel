@@ -107,7 +107,7 @@
         $(".modal-title").text('');
         $(".modal-body .h3").html('');
         $("#inputBox").show();
-        $.get("work/info/" + i,
+        $.get("{{url('work/info')}}/" + i,
             function (data) {
                 $(".modal-title").text('上交');
                 $(".modal-body .h3").html(data.course.icon + ' ' + data.course.name + ' - ' + data.name);
@@ -124,14 +124,14 @@
         $(".modal-body .h3").html('');
         $("#inputBox").hide();
         $('#ListBox').html('')
-        $.get("work/info/" + i,
+        $.get("{{url('work/info')}}/" + i,
             function (data) {
                 $(".modal-body .h3").html(data.course.icon + ' ' + data.course.name + ' - ' + data.name);
                 fileinput.fileinput('refresh', {
                     uploadUrl: '{{url('work/uploadFile')}}',
                      uploadExtraData: { 'info': JSON.stringify(data)}
                 }).fileinput('clear');
-                $.post("work/fileList/", {
+                $.post("{{url('work/fileList')}}/", {
                     'info': JSON.stringify(data)
                 },
                 function (data) {
