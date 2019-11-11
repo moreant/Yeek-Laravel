@@ -20,13 +20,19 @@
                 <ul class="list-unstyled">
                     <li><a href="https://github.com/mojuchen/Yeek-Laravel/commits/master">更新日志</a></li>
                     <li><a href="https://github.com/mojuchen/Yeek-Laravel/commits/master">提交问题</a></li>
-                    <li><a href="https://github.com/mojuchen/Yeek-Laravel">项目开源</a></li>
+                    <li><a href="https://github.com/mojuchen/Yeek-Laravel">查看源码
+                            <img src="https://img.shields.io/github/stars/mojuchen/Yeek-Laravel?style=social"
+                                alt="github">
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="col-sm-4">
                 <h4>友情链接</h4>
                 <ul class="list-unstyled">
                     <li><a href="http://ip.yeek.top/">旧版Yeek</a></li>
+                    <li><a href="http://catapla.work">北枳实验站</a></li>
+                    <li><a href="https://gitmoji.carloscuesta.me/">gitmoji</a></li>
                 </ul>
             </div>
         </div>
