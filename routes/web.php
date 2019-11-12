@@ -25,13 +25,16 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('/delete/{id}', 'WorkController@delete');
         Route::get('/test', 'WorkController@test');
         Route::get('/info/{id}', 'WorkController@info');
-        Route::any('/uploadFile','FileController@input');
-        Route::any('/download/{dir}','FileController@download');
-        Route::any('/fileList','FileController@getFileList');
+        Route::any('/uploadFile', 'FileController@input');
+        Route::any('/download/{dir}', 'FileController@download');
+        Route::any('/fileList', 'FileController@getFileList');
     });
 });
 
-Route::view('/ftp', 'ftp');
+Route::get('/ftp', function () {
+    $coursesFtp =  DB::table('courses')->orderBy('classroom')->whereNotNull('ftp')->get();
+    return view('ftp', ['coursesFtp' => $coursesFtp]);
+});
 
 Route::any('/t', 'FileController@getFileList');
 

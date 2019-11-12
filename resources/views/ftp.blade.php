@@ -89,31 +89,14 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($coursesFtp as $item)
                         <tr>
-                            <td>406</td>
-                            <td>移动商务网站开发</td>
-                            <td>ftp://10.1.41.116/</td>
+                            <td>{{$item->classroom}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->ftp}}</td>
+                           
                         </tr>
-                        <tr>
-                            <td>405</td>
-                            <td>平面设计</td>
-                            <td>ftp://172.19.145.65/</td>
-                        </tr>
-                        <tr>
-                            <td>304</td>
-                            <td>PHP和MySQL</td>
-                            <td>ftp://192.168.0.200/</td>
-                        </tr>
-                        <tr>
-                            <td>404</td>
-                            <td>摄影后期（选修）</td>
-                            <td>ftp://10.1.41.41/</td>
-                        </tr>
-                        <tr>
-                            <td>303</td>
-                            <td>JavaScript与JQuery</td>
-                            <td>ftp://192.168.0.100/</td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 @show
