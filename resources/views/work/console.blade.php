@@ -106,7 +106,9 @@
             <td>{{ $work->remarks }}</td>
             <td>
                 @if ($work->upload)
-                <a href="{{url('work/download').'/'.$work->id.'_'.$work->course->call_name}}">需要</a>
+                <a href="{{url('work/download').'/'.$work->id.'_'.$work->course->call_name}}">
+                    <button class="btn btn-sm btn-outline-info" type="button">需要</button>
+                </a>
                 @endif
             </td>
             <td>
