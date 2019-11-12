@@ -24,11 +24,14 @@
 
         }
 
+        th:not(:first-child) {
+            min-width: 130px;
+        }
+
         .banner {
             /* 这个是我偷 next 的，Link=>http://theme-next.iissnan.com/ */
             background: url('{{ asset('img/banner-2.jpg') }}') 0 80%;
             background-size: cover;
-
         }
     </style>
     @show
@@ -56,7 +59,7 @@
 
         <div class="row">
             <!-- 侧边栏 -->
-            <div class="col-md-2 mb-3">
+            <div class="col-lg-2 mb-3">
                 <div class="list-group">
                     <a href="{{ url('work/') }}"
                         class="list-group-item {{ Request::getPathInfo() == '/work' ? 'active' : '' }} ">
@@ -79,7 +82,7 @@
             <!-- end 侧边栏 -->
 
             <!-- 主显示区 -->
-            <div class="col-md-10">
+            <div class="col-lg-10">
 
                 <!-- 提示框 -->
                 @if(Session::has('title'))

@@ -43,7 +43,7 @@
 <div class="card">
     <div class="card-header h4">{{ $title }}</div>
     <div class="card-body table-responsive">
-        <table class="table table-hover" style="min-width: 750px">
+        <table class="table table-hover" style="min-width: 900px">
             <thead>
                 <tr>
                     <th>#</th>
