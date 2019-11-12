@@ -51,7 +51,7 @@
     </header>
     @show
 
-    <main class="container-fluid w-75 flex-md-grow-1">
+    <main class="container-fluid w-75 flex-md-grow-1 mt-3 mb-5">
 
         @section('modal')
 

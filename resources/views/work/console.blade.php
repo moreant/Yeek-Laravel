@@ -104,19 +104,20 @@
             <td>{{ substr($work->start,5) }}</td>
             <td>{{ substr($work->end,5) }}</td>
             <td>{{ $work->remarks }}</td>
-            {{-- <td>{!! $work->upload == 0 ? '<div class="progress">
-                    <div class="progress-bar bg-success" style="width:40%"><a class="text-light" href="#">4/56</a></div>
-                  </div>' : '' !!}</td> --}}
             <td>
                 @if ($work->upload)
-                <a href="{{url('work/download').'/'.$work->id.'_'.$work->course->call_name}}">需要</a>
+                <a href="{{url('work/download').'/'.$work->id.'_'.$work->course->call_name}}">
+                    <button class="btn btn-sm btn-outline-info" type="button">需要</button>
+                </a>
                 @endif
             </td>
             <td>
-                <a href="javascript:void(0)" onclick="update({{ $work->id }})">
-                    修改</a>
-                / <a href="#" onclick="del({{ $work->id }})" data-toggle="modal" data-target="#modal">
-                    删除</a>
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-info" onclick="update({{ $work->id }})" type="button">修改</button>
+                    <button class="btn btn-outline-danger" onclick="del({{ $work->id }})" data-toggle="modal"
+                        data-target="#modal" type="button">删除</button>
+                </div>
+
             </td>
         </tr>
         @endforeach

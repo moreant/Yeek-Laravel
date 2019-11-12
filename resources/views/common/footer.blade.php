@@ -3,20 +3,19 @@
         color: #6c757d !important;
     }
 </style>
-<footer class="jumbotron" style="margin:0;padding:2rem 1rem; max-height:300px;">
+<footer class="jumbotron mt-5" style="margin:0;padding:2rem 1rem;">
     <div class="container">
         <div class="row mb-3">
-            <div class="col-sm-4">
-                <h4>站长</h4>
+            <div class="col-md-4">
+                <h4>站长信息</h4>
                 <ul class="list-unstyled">
-                    <li><a href="#">莫居尘 - 学生</a></li>
-                    <li><a href="#">552191481@qq.com</a></li>
+                    <li><a href="javascript:void(0)">莫居尘</a></li>
+                    <li><a href="javascript:void(0)">552191481@qq.com</a></li>
                     <li><a href="https://mojuchen.github.io/">个人博客</a></li>
-
                 </ul>
             </div>
-            <div class="col-sm-4">
-                <h4>关于</h4>
+            <div class="col-md-4">
+                <h4>建议支持</h4>
                 <ul class="list-unstyled">
                     <li><a href="https://github.com/mojuchen/Yeek-Laravel/commits/master">更新日志</a></li>
                     <li><a href="https://github.com/mojuchen/Yeek-Laravel/commits/master">提交问题</a></li>
@@ -27,7 +26,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-4">
+            <div class="col-md-4">
                 <h4>友情链接</h4>
                 <ul class="list-unstyled">
                     <li><a href="http://ip.yeek.top/">旧版Yeek</a></li>
