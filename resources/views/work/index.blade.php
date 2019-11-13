@@ -60,19 +60,19 @@
                 <tr>
                     <td>{{ $work->id }}</td>
                     <td>{!! $work->course->icon !!}{{ $work->name }}</td>
-                    <td>{{ substr($work->start,5) }}</td>
-                    <td>{{ substr($work->end,5) }}</td>
+                    <td style="min-width:5em">{{ substr($work->start,5) }}</td>
+                    <td style="min-width:5em">{{ substr($work->end,5) }}</td>
                     <td>{{ $work->remarks }}</td>
-                    <td class="text-center">@if ($work->upload == 1)
+                    <td class="text-center" style="min-width:8em">@if ($work->upload == 1)
                         <div class="btn-group btn-group-sm">
                             @if (strtotime($work->end)>strtotime(date("y-m-d")))
-                        <a href="#" onclick="workModal({{ $work->id }})" data-toggle="modal" data-target="#modal">
-                            上交</a>
+                            <a href="#" onclick="modal(true,{{ $work->id }})" data-toggle="modal" data-target="#modal">
+                                上交</a>
                             <span class="ml-1 mr-1 text-black-50"> | </span>
-                        @endif
-                        <a href="#" onclick="notWorkModal({{ $work->id }})" data-toggle="modal" data-target="#modal">
-                            未交</a>
-                        @endif
+                            @endif
+                            <a href="#" onclick="modal(false,{{ $work->id }})" data-toggle="modal" data-target="#modal">
+                                未交</a>
+                            @endif
                     </td>
                 </tr>
                 @endforeach
@@ -104,13 +104,25 @@
     });
     // 弹出上传框
     var fileinput =  $("#input-work")
-    function workModal(i) {
+
+    function modal(type,id){
         $(".modal-title").text('');
         $(".modal-body .h3").html('');
-        $("#inputBox").show();
+        $('#ListBox').html('');
+        if(type){
+            $("#inputBox").show();
+        $(".modal-title").text('上交');
+        }else{
+            $(".modal-title").text('未交');
+            $("#inputBox").hide();
+        }
+    }
+
+    function workModal(i) {
+        clearModal();
+      
         $.get("{{url('work/info')}}/" + i,
             function (data) {
-                $(".modal-title").text('上交');
                 $(".modal-body .h3").html(data.course.icon + ' ' + data.course.name + ' - ' + data.name);
                 fileinput.fileinput('refresh', {
                     uploadUrl: '{{url('work/uploadFile')}}',
@@ -121,17 +133,11 @@
     }
 
     function notWorkModal(i){
-        $(".modal-title").text('未交');
-        $(".modal-body .h3").html('');
-        $("#inputBox").hide();
-        $('#ListBox').html('')
+        clearModal();
+       
         $.get("{{url('work/info')}}/" + i,
             function (data) {
                 $(".modal-body .h3").html(data.course.icon + ' ' + data.course.name + ' - ' + data.name);
-                fileinput.fileinput('refresh', {
-                    uploadUrl: '{{url('work/uploadFile')}}',
-                     uploadExtraData: { 'info': JSON.stringify(data)}
-                }).fileinput('clear');
                 $.post("{{url('work/fileList')}}/", {
                     'info': JSON.stringify(data)
                 },
@@ -139,7 +145,6 @@
                     $.each(data.fileList, function (i, val) {
                         $('#ListBox').append('<p>' + val + '</p>')
                     });
-                    console.log(data)
                 });
             });
     }

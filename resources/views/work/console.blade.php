@@ -83,47 +83,46 @@
 </div>
 
 <br><br>
-
-<table class="table table-hover" style="min-width: 1000px">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>作业</th>
-            <th>开始</th>
-            <th>截止</th>
-            <th>备注</th>
-            <th>上交</th>
-            <th>操作</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($works as $work)
-        <tr>
-            <td>{{ $work->id }}</td>
-            <td>{!! $work->course->icon !!}{{ $work->name }}</td>
-            <td>{{ substr($work->start,5) }}</td>
-            <td>{{ substr($work->end,5) }}</td>
-            <td>{{ $work->remarks }}</td>
-            <td>
-                @if ($work->upload)
-                <a href="{{url('work/download').'/'.$work->id.'_'.$work->course->call_name}}">
-                    <button class="btn btn-sm btn-outline-info" type="button">需要</button>
-                </a>
-                @endif
-            </td>
-            <td>
-                <a href="javascript:void(0)" onclick="update({{ $work->id }})">
-                    修改
-                </a>
-                <span class="ml-1 mr-1 text-black-50"> | </span>
-                <a href="#" onclick="del({{ $work->id }})" data-toggle="modal" data-target="#modal">
-                    删除
-                </a>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-hover" style="min-width: 1000px">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>作业</th>
+                <th>开始</th>
+                <th>截止</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($works as $work)
+            <tr>
+                <td>{{ $work->id }}</td>
+                <td>{!! $work->course->icon !!}{{ $work->name }}</td>
+                <td style="min-width:5em">{{ substr($work->start,5) }}</td>
+                <td style="min-width:5em">{{ substr($work->end,5) }}</td>
+                <td>{{ $work->remarks }}</td>
+                <td style="min-width:10em">
+                    <a href="javascript:void(0)" onclick="update({{ $work->id }})">
+                        修改
+                    </a>
+                    <span class="ml-1 mr-1 text-black-50"> | </span>
+                    <a href="#" onclick="del({{ $work->id }})" data-toggle="modal" data-target="#modal">
+                        删除
+                    </a>
+                    @if ($work->upload)
+                    <span class="ml-1 mr-1 text-black-50"> | </span>
+                    <a href="{{url('work/download').'/'.$work->id.'_'.$work->course->call_name}}">
+                        下载
+                    </a>
+                    @endif
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 <!-- 分页 -->
 <div class="flex d-flex flex-row-reverse mt-3">
     {{ $works->onEachSide(5)->links() }}
