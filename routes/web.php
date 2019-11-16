@@ -23,7 +23,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('/save', 'WorkController@save');
         Route::get('/update/{id}', 'WorkController@update');
         Route::get('/delete/{id}', 'WorkController@delete');
-        Route::get('/test', 'WorkController@test');
+        Route::get('/netdisc', 'WorkController@netdisc');
         Route::get('/info/{id}', 'WorkController@info');
         Route::any('/uploadFile', 'FileController@input');
         Route::any('/download/{dir}', 'FileController@download');

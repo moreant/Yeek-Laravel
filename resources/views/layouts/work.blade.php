@@ -58,20 +58,20 @@
                 <div class="list-group">
                     <a href="{{ url('work/') }}"
                         class="list-group-item {{ Request::getPathInfo() == '/work' ? 'active' : '' }} ">
-                        <i class="fas fa-bookmark"></i>
+                        <i class="fa-fw fas fa-bookmark"></i>
                         进行中</a>
                     <a href="{{ url('work/all') }}"
                         class="list-group-item {{ Request::getPathInfo() == '/work/all' ? 'active' : '' }} ">
-                        <i class="fa fa-list"></i>
+                        <i class="fa-fw fa fa-list"></i>
                         全部</a>
                     <a href="{{ url('work/console') }}" onclick="quanxian()"
                         class="list-group-item  {{ Request::getPathInfo() == '/work/console' ? 'active' : '' }} ">
-                        <i class="fas fa-tools"></i>
+                        <i class="fa-fw fas fa-tools"></i>
                         控制台</a>
-                    <a href="{{ url('work/test') }}"
-                        class="list-group-item  {{ Request::getPathInfo() == '/work/test' ? 'active' : '' }} ">
-                        <i class="fa fa-bug"></i>
-                        Test</a>
+                    <a href="{{ url('work/netdisc') }}"
+                        class="list-group-item  {{ Request::getPathInfo() == '/work/netdisc' ? 'active' : '' }} ">
+                        <i class="fa-fw fa fa-save"></i>
+                        一存</a>
                 </div>
             </div>
             <!-- end 侧边栏 -->

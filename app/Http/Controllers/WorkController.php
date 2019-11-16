@@ -113,12 +113,10 @@ class WorkController extends Controller
         }
     }
 
-    public function test()
+    public function netdisc()
     {
-        return redirect('work/')->with([
-            'type' => 'success',
-            'title' => '成功',
-            'msg' => '添加',
+        return view('work.netdisc',[
+            'title' => '一客存储'
         ]);
     }
 
