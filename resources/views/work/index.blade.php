@@ -62,7 +62,7 @@
                     <td>{!! $work->course->icon !!}{{ $work->name }}</td>
                     <td style="min-width:5em">{{ substr($work->start,5) }}</td>
                     <td style="min-width:5em">{{ substr($work->end,5) }}</td>
-                    <td>{{ $work->remarks }}</td>
+                    <td>{!! $work->remarks !!}</td>
                     <td class="text-center" style="min-width:8em">@if ($work->upload == 1)
                         <div class="btn-group btn-group-sm">
                             @if (strtotime($work->end)>strtotime(date("y-m-d")))
