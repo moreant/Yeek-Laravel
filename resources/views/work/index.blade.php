@@ -102,58 +102,14 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    // 弹出上传框
-    var fileinput =  $("#input-work")
+    // 定义上传框
+    var fileinput = $("#input-work")
 
-    function modal(type,id){
-        $(".modal-title").text('');
-        $(".modal-body .h3").html('');
-        $('#ListBox').html('');
-        if(type){
-            $("#inputBox").show();
-        $(".modal-title").text('上交');
-        }else{
-            $(".modal-title").text('未交');
-            $("#inputBox").hide();
-        }
-    }
-
-    function workModal(i) {
-        clearModal();
-      
-        $.get("{{url('work/info')}}/" + i,
-            function (data) {
-                $(".modal-body .h3").html(data.course.icon + ' ' + data.course.name + ' - ' + data.name);
-                fileinput.fileinput('refresh', {
-                    uploadUrl: '{{url('work/uploadFile')}}',
-                     uploadExtraData: { 'info': JSON.stringify(data)}
-                }).fileinput('clear');
-                $("#modal-status").text('');
-            });
-    }
-
-    function notWorkModal(i){
-        clearModal();
-       
-        $.get("{{url('work/info')}}/" + i,
-            function (data) {
-                $(".modal-body .h3").html(data.course.icon + ' ' + data.course.name + ' - ' + data.name);
-                $.post("{{url('work/fileList')}}/", {
-                    'info': JSON.stringify(data)
-                },
-                function (data) {
-                    $.each(data.fileList, function (i, val) {
-                        $('#ListBox').append('<p>' + val + '</p>')
-                    });
-                });
-            });
-    }
-
-    // 初始化上传
+    // 初始化上传框
     fileinput.fileinput({
         theme: 'fas',
         language: 'zh',
-        uploadUrl: '{{url('work/uploadFile')}}',
+        uploadUrl: '{{url('work / uploadFile')}}',
         uploadAsync: true, //默认异步上传
         // allowedFileExtensions: ['txt', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'zip', 'jpg', 'rar'],
         showPreview: false, //是否显示预览
@@ -162,17 +118,54 @@
         enctype: 'multipart/form-data',
         browseClass: "btn btn-primary", //按钮样式
     });
-    
+
     // ajax 上传中时
     fileinput.on("filepreajax", function () {
         $("#modal-status").text("文件上传中。。。");
     });
-    
+
     // 上传完成时
     fileinput.on("fileuploaded", function (event, data, previewId, index) {
         // alert(data.response.result);
         $("#modal-status").text(data.response.result);
     });
+
+    // 处理 上交 / 查询 
+    function modal(type, id) {
+        $(".modal-title").text('');
+        $(".modal-body .h3").html('');
+        $('#ListBox').html('');
+        $("#modal-status").text('');
+        if (type) {
+            $(".modal-title").text('上交文件');
+            $("#inputBox").show();
+        } else {
+            $(".modal-title").text('未交列表');
+            $("#inputBox").hide();
+        }
+        $.get("{{url('work/info')}}/" + id,
+            function (data) {
+                $(".modal-body .h3").html(data.course.icon + ' ' + data.course.name + ' - ' + data.name);
+                if (type) {
+                    fileinput.fileinput('refresh', {
+                        uploadUrl: '{{url('work/uploadFile')}}',
+                        uploadExtraData: {
+                            'info': JSON.stringify(data)
+                        }
+                    }).fileinput('clear');
+                }else{
+                    $.post("{{url('work/fileList')}}/", {
+                        'info': JSON.stringify(data)
+                    },
+                    function (data) {
+                        $.each(data.fileList, function (i, val) {
+                            $('#ListBox').append('<p>' + val + '</p>')
+                        });
+                    });
+                }
+            });
+    }
+
 
 </script>
 @endsection
