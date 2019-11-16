@@ -12,7 +12,7 @@ class WorkController extends Controller
 {
     public function index()
     {
-        $works = Work::orderBy('id', 'abs')->where('end', '>=', date('Y-m-d'))->with('course')->paginate(10);
+        $works = Work::orderBy('id', 'abs')->where('end', '>', date('Y-m-d'))->with('course')->paginate(10);
         // dd($works);
         return view('work.index', [
             'title' => '进行中',
