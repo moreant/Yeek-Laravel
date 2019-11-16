@@ -21,8 +21,8 @@
         </ol>
         说这么多，是想问有没有童鞋有这个需求。最近事多，这个玩意暂时处于<span class="text-danger">无限期延期</span>
         <legend>如果你有存储作业或课件的需求</legend>
-        想学 laravel 的可以跟我一起学一学
-        不想学只想用的，<a href="https://github.com/mojuchen/Yeek-Laravel">去GitHub给我个星星呗</a>
+        <p>对 laravel 有兴趣的同学去试一下能不能解决上面两个问题，然后可以用 pull request 整合到我的yeek中</p>
+        <p>没兴趣只想用的，<a href="https://github.com/mojuchen/Yeek-Laravel">去GitHub给我个星星</a>支持我一下呗</p>
     </div>
 </div>
 
