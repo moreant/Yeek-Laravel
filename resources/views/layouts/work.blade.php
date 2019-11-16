@@ -21,7 +21,6 @@
 
         body {
             font-family: 'Noto Sans SC', sans-serif;
-
         }
         
         .banner {
@@ -111,16 +110,6 @@
     <script src="https://cdn.bootcss.com/font-awesome/5.10.2/js/all.js"></script>
     <script src="{{asset('/static/jquery.min.js')}}"></script>
     <script src="{{asset('/static/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script>
-        function quanxian(){
-            var input = prompt('权限认证');
-            if(input != 'aaa'){
-                var e = event;
-                alert('失败')
-                e.preventDefault();
-            }
-        }
-    </script>
     @section('javasctipt')
 
     @show

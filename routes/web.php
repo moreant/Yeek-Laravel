@@ -19,7 +19,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::prefix('work')->group(function () {
         Route::get('/', 'WorkController@index')->name('work');
         Route::get('/all', 'WorkController@all');
-        Route::get('/console', 'WorkController@console');
+        Route::get('/console', 'WorkController@console')->middleware('auth');
         Route::get('/save', 'WorkController@save');
         Route::get('/update/{id}', 'WorkController@update');
         Route::get('/delete/{id}', 'WorkController@delete');
@@ -35,10 +35,6 @@ Route::get('/ftp', function () {
     $coursesFtp =  DB::table('courses')->orderBy('classroom')->whereNotNull('ftp')->get();
     return view('ftp', ['coursesFtp' => $coursesFtp]);
 });
-
-Route::any('/t', 'FileController@getFileList');
-
-Route::any('/t2', 'FileController@zip');
 
 Auth::routes();
 
