@@ -90,7 +90,7 @@
 
         </div>
 
-        <div class="row text-center">
+        <div class="row text-center w-100 m-0">
             <div class="col-md bg-light border p-5">
                 <h4 class="font-weight-bold"><a href="/work">作业管理</a></h4>
             </div>
