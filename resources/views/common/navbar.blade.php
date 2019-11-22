@@ -10,9 +10,11 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ">
                 <li class="nav-item"><a class="nav-link" href="/work" class="nav-link">作业管理</a></li>
                 <li class="nav-item"><a class="nav-link" href="/ftp" class="nav-link">FTP列表</a></li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
                 @guest
                 <li class="nav-item"><a class="nav-link" href="/login" class="nav-link">登录</a></li>
                 @else
