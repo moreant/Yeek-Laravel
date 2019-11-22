@@ -54,7 +54,7 @@
                     <button type="submit" class="btn btn-block btn-primary">
                         登录
                     </button>
-                    <div class=" ml-1 mr-1"></div>
+                    <div class="m-2"></div>
                     <a onclick="javascript:alert('暂未开放')" class="btn btn-block btn-outline-secondary">注册</a>
                 </div>
             </form>
