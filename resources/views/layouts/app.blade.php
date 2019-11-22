@@ -21,9 +21,9 @@
     </style>
 </head>
 
-<body>
+<body class="vh-100 d-md-flex flex-md-column">
 
-    <div id="app">
+    <div id="app" class="flex-md-grow-1">
         @component('common.navbar')
 
         @endcomponent
@@ -31,6 +31,10 @@
             @yield('content')
         </main>
     </div>
+
+    @component('common.footer')
+        
+    @endcomponent
 </body>
 
 </html>
