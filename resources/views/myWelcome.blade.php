@@ -91,13 +91,13 @@
         </div>
 
         <div class="row text-center w-100 m-0">
-            <div class="col-md bg-light border p-5">
+            <div class="col-md bg-light border p-4">
                 <h4 class="font-weight-bold"><a href="/work">作业管理</a></h4>
             </div>
-            <div class="col-md bg-light border p-5">
+            <div class="col-md bg-light border p-4">
                 <h4 class="font-weight-bold"><a href="/ftp">FTP列表</h4>
             </div>
-            <div class="col-md bg-light border p-5">
+            <div class="col-md bg-light border p-4">
                 <h4 class="font-weight-bold"><a href="/ftp">个人中心</h4>
             </div>
         </div>

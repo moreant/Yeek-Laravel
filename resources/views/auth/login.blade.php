@@ -17,7 +17,7 @@
             </ul>
           </div>
         <div class="offset-1 col-md-1 border-left"></div>
-        <div class="col-md-4 p-0">
+        <div class="col-md-4">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="form-group ">
