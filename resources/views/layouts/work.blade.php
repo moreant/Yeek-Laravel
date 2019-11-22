@@ -15,10 +15,6 @@
     @show
     @section('style')
     <style>
-        :root {
-            height: 100%;
-        }
-
         body {
             font-family: 'Noto Sans SC', sans-serif;
         }
@@ -32,7 +28,7 @@
     @show
 </head>
 
-<body class="h-100 d-md-flex flex-md-column">
+<body class="vh-100 d-md-flex flex-md-column">
 
     @component('common.navbar')
 
