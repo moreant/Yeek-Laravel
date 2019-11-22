@@ -7,92 +7,90 @@
 
     <title>Laravel</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap">
 
+    <link rel="stylesheet" href="{{asset('/static/bootstrap/css/bootstrap.min.css')}}">
+    <script src="{{asset('/static/jquery.min.js')}}"></script>
+    <script src="{{asset('/static/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- Styles -->
     <style>
-        html,
         body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            height: 100vh;
-            margin: 0;
+            font-family: 'Noto Sans SC', sans-serif;
         }
 
-        .full-height {
-            height: 75vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 126px;
-        }
-
-        .links>a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 36px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
+        .banner-img {
+            height:35vh;
+            background: url('{{ asset('img/banner-0.jpg') }}') 0 80%;
+            background-size: cover;
         }
     </style>
 </head>
 
-<body>
-    <div class="flex-center position-ref full-height">
-        {{-- @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-            <a href="{{ url('/home') }}">Home</a>
-        @else
-        <a href="{{ route('login') }}">Login</a>
+<body class="vh-100 d-md-flex flex-md-column">
+    @component('common.navbar')
 
-        @if (Route::has('register'))
-        <a href="{{ route('register') }}">Register</a>
-        @endif
-        @endauth
-    </div>
-    @endif --}}
+    @endcomponent
+    <main class="flex-md-grow-1">
+        <div id="banner" class="carousel slide" data-ride="carousel">
+            <!-- 指示符 -->
+            <ul class="carousel-indicators">
+                <li data-target="#banner" data-slide-to="0" class="active"></li>
+                <li data-target="#banner" data-slide-to="1"></li>
+                <li data-target="#banner" data-slide-to="2"></li>
+                <li data-target="#banner" data-slide-to="3"></li>
+            </ul>
 
-    <div class="content">
-        <div class="title m-b-md">
-            Yeek & Laravel
+            <!-- 轮播图片 -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="banner-img" index='0'></div>
+                    <div class="carousel-caption">
+                        <p class="display-3">Laravel</p>
+                        <h4>更优雅的PHP框架</h4>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="banner-img" index='1'></div>
+                    <div class="carousel-caption">
+                        <p class="display-3">Nginx</p>
+                        <h4>更快的WEB服务器</h4>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="banner-img" index='2'></div>
+                    <div class="carousel-caption">
+                        <p class="display-3">七牛云CDN</p>
+                        <h4>更近的缓存服务器</h4>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="banner-img" index='3'></div>
+                    <div class="carousel-caption">
+                        <p class="display-3">Docker</p>
+                        <h4>更少的性能开销</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 左右切换按钮 -->
+            <a class="carousel-control-prev" href="#banner" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#banner" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+
         </div>
+    </main>
+    @component('common.footer')
 
-    
-        <div class="links">
-            <a href=" {{route('work')}} ">进入作业管理</a>
-        </div>
-    </div>
-    </div>
+    @endcomponent
+    <script>
+        $.each($(".banner-img"),function(i,o){
+            $(o).css({'background':"url('{{ asset('img') }}/banner-"+i+".jpg') 0 80% ",'background-size':'cover'})
+        })
+    </script>
 </body>
 
 </html>

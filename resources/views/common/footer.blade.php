@@ -30,7 +30,7 @@
                 <h4>友情链接</h4>
                 <ul class="list-unstyled">
                     <li><a href="http://ip.yeek.top/">旧版Yeek</a></li>
-                    <li><a href="http://catapla.work">北枳实验站</a></li>
+                    <li><a href="https://www.freepik.com/free-photos-vectors/background">banner from freepik</a></li>
                     <li><a href="https://gitmoji.carloscuesta.me/">gitmoji</a></li>
                 </ul>
             </div>

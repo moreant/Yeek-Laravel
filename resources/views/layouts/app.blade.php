@@ -22,18 +22,18 @@
 </head>
 
 <body class="vh-100 d-md-flex flex-md-column">
+    @component('common.navbar')
 
+    @endcomponent
     <div id="app" class="flex-md-grow-1">
-        @component('common.navbar')
 
-        @endcomponent
         <main class="mt-5">
             @yield('content')
         </main>
     </div>
 
     @component('common.footer')
-        
+
     @endcomponent
 </body>
 

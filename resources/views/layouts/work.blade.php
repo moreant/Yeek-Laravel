@@ -21,7 +21,7 @@
         
         .banner {
             /* 这个是我偷 next 的，Link=>http://theme-next.iissnan.com/ */
-            background: url('{{ asset('img/banner-2.jpg') }}') 0 80%;
+            background: url('{{ asset('img/work-banner.jpg') }}') 0 80%;
             background-size: cover;
         }
     </style>
