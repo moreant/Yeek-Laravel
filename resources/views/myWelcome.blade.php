@@ -46,29 +46,29 @@
                 <div class="carousel-item active">
                     <div class="banner-img" index='0'></div>
                     <div class="carousel-caption">
-                        <p class="display-3">Laravel</p>
-                        <h4>更优雅的PHP框架</h4>
+                        <p class="display-4">Laravel</p>
+                        <h5>更优雅的PHP框架</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="banner-img" index='1'></div>
                     <div class="carousel-caption">
-                        <p class="display-3">Nginx</p>
-                        <h4>更快的WEB服务器</h4>
+                        <p class="display-4">Nginx</p>
+                        <h5>更快的WEB服务器</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="banner-img" index='2'></div>
                     <div class="carousel-caption">
-                        <p class="display-3">七牛云CDN</p>
-                        <h4>更近的缓存服务器</h4>
+                        <p class="display-4">七牛云CDN</p>
+                        <h5>更近的缓存服务器</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="banner-img" index='3'></div>
                     <div class="carousel-caption">
-                        <p class="display-3">Docker</p>
-                        <h4>更少的性能开销</h4>
+                        <p class="display-4">Docker</p>
+                        <h5>更少的性能开销</h5>
                     </div>
                 </div>
             </div>
