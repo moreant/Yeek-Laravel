@@ -20,9 +20,16 @@
         }
 
         .banner-img {
-            height:35vh;
+            height: 35vh;
             background: url('{{ asset('img/banner-0.jpg') }}') 0 80%;
             background-size: cover;
+        }
+
+        h4>a{
+            color: #343a40;
+        }
+        h4>a:hover {
+            color: #0257b1;
         }
     </style>
 </head>
@@ -46,28 +53,28 @@
                 <div class="carousel-item active">
                     <div class="banner-img" index='0'></div>
                     <div class="carousel-caption">
-                        <p class="display-4">Laravel</p>
+                        <p class="display-4 font-weight-bold">Laravel</p>
                         <h5>更优雅的PHP框架</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="banner-img" index='1'></div>
                     <div class="carousel-caption">
-                        <p class="display-4">Nginx</p>
+                        <p class="display-4 font-weight-bold">Nginx</p>
                         <h5>更快的WEB服务器</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="banner-img" index='2'></div>
                     <div class="carousel-caption">
-                        <p class="display-4">七牛云CDN</p>
+                        <p class="display-4 font-weight-bold">七牛云CDN</p>
                         <h5>更近的缓存服务器</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="banner-img" index='3'></div>
                     <div class="carousel-caption">
-                        <p class="display-4">Docker</p>
+                        <p class="display-4 font-weight-bold">Docker</p>
                         <h5>更少的性能开销</h5>
                     </div>
                 </div>
@@ -82,6 +89,20 @@
             </a>
 
         </div>
+
+        <div class="row text-center">
+            <div class="col-md bg-light border p-5">
+                <h4 class="font-weight-bold"><a href="/work">作业管理</a></h4>
+            </div>
+            <div class="col-md bg-light border p-5">
+                <h4 class="font-weight-bold"><a href="/ftp">FTP列表</h4>
+            </div>
+            <div class="col-md bg-light border p-5">
+                <h4 class="font-weight-bold"><a href="/ftp">个人中心</h4>
+            </div>
+        </div>
+
+
     </main>
     @component('common.footer')
 
