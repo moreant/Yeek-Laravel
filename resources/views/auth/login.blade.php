@@ -8,12 +8,11 @@
             <div class="media">
                 <img class="img-fluid align-self-center mx-auto" src={{asset('img/Yeek.png')}}>
             </div>
-            <p>开启你的作业个性化管理</p>
             <hr>
             <ul class="list-unstyled">
-                <li><span class="text-info">Nginx</span> - 更快的响应速度</li>
                 <li><span class="text-danger">Laravel</span> - 更优雅的PHP框架</li>
-                <li><span class="text-success">CDN聚合</span> - 更近的服务器</li>
+                <li><span class="text-info">Nginx</span> - 更快的响应速度</li>
+                <li><span class="text-success">七牛云CDN</span> - 更近的服务器</li>
             </ul>
           </div>
         <div class="offset-1 col-md-1 border-left"></div>
