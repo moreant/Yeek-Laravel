@@ -9,8 +9,8 @@
             <div class="col-md-4">
                 <h4>站长信息</h4>
                 <ul class="list-unstyled">
-                    <li><a href="javascript:void(0)">莫居尘</a></li>
-                    <li><a href="javascript:void(0)">552191481@qq.com</a></li>
+                    <li>莫居尘</li>
+                    <li>552191481@qq.com</li>
                     <li><a href="https://mojuchen.github.io/">个人博客</a></li>
                 </ul>
             </div>

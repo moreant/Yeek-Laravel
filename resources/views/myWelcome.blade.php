@@ -126,7 +126,7 @@
                     <div><img src="img/aliyun.png" class="media-img"></div>
                     <div>
                         <h2 class="mb-3 mt-3">云服务器</h2>
-                        <h4>使用阿里云 ECS 云服务</h4>
+                        <h4>使用阿里云 ECS 云服务器</h4>
                         <h4>7*24 小时运行，高性能云盘</h4>
                     </div>
                 </div>
