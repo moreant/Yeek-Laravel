@@ -9,9 +9,10 @@
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="boot.css">
 </head>
+
 <body>
     <main class="game">
-        <h2>垃圾分类小游戏</h2>
+        <h2>垃圾分类小游戏，请点击下面的垃圾，移动到对应的垃圾桶后再次点击。移动太快垃圾会掉下来的。</h2>
         <h3>当前积分：<span id="score">0</span></h3>
         <div id="rubbishBox">
             <img id="rubbish" src="" alt="">
@@ -26,4 +27,5 @@
         <script src="35.js"></script>
     </main>
 </body>
+
 </html>
