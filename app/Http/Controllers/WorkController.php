@@ -116,7 +116,7 @@ class WorkController extends Controller
     public function netdisc()
     {
         return view('work.netdisc',[
-            'title' => '一客存储'
+            'title' => 'swift补交'
         ]);
     }
 

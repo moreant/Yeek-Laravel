@@ -103,4 +103,41 @@ class FileController extends Controller
         array_push($notUpload, count($notUpload));
         return response()->json(['fileList' => $notUpload]);
     }
+
+
+    public function checkId(Request $request)
+    {
+        $fileName = $request->name;
+        $studentIdArr = ["05180842", "06181248", "07180901", "07180902", "07180903", "07180904", "07180905", "07180906", "07180907", "07180908", "07180909", "07180910", "07180911", "07180912", "07180913", "07180914", "07180915", "07180916", "07180917", "07180918", "07180919", "07180920", "07180921", "07180922", "07180923", "07180924", "07180925", "07180926", "07180927", "07180928", "07180929", "07180930", "07180931", "07180932", "07180933", "07180934", "07180935", "07180936", "07180937", "07180938", "07180939", "07180940", "07180941", "07180942", "07180943", "07180944", "07180945", "07180946", "07180947", "07180948", "07180949", "07180950", "07180951", "07180952", "07180953", "07180954"];
+        preg_match('/^\w{8}.+_\w{1,2}/s', $fileName, $matchesReg);
+        if ($matchesReg) {
+            preg_match('/^\w{8}/', $fileName, $matchesId);
+            if ($matchesId) {
+                $studentId = $matchesId[0];
+                if (in_array($studentId, $studentIdArr)) {
+                    
+                } else {
+                    return response()->json(['resp' => '找不到匹配的学号，请移除后重新选择']);
+                }
+            }
+        } else {
+            return response()->json(['resp' => '格式不符合，请移除后重新选择']);
+        }
+    }
+
+
+    public function bujiaoFile(Request $request)
+    {
+
+        $file = $request->file('file');
+        if ($file->isValid()) {
+            // 目录例子: work/42_swift
+            $dir = 'work/swift_bujiao';
+            $fileName = $file->getClientOriginalName();
+            Storage::putFileAs($dir, $file, $fileName);
+            return response()->json(['result' => '上传成功']);
+        } else {
+            return response()->json(['result' => '上传失败', 'code' => $request->file('')]);
+        }
+    }
 }

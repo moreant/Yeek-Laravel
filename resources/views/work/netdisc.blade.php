@@ -1,29 +1,92 @@
 @extends('layouts.work')
 
+@section('link')
+<link rel="stylesheet" href="{{asset('/static/fileinput/css/fileinput.css')}}">
+
+{{-- csrf 令牌 --}}
+<meta name="csrf-token" content="{{ csrf_token() }}">
+@endsection
+
+
 @section('title')
 {{ $title }}
 @endsection
+
+
 
 @section('content')
 
 <div class="card">
     <div class="card-header h4">{{ $title }}</div>
     <div class="card-body">
-        <p>我是想着弄个网盘可以临时存储（未完成的）作业，或者管理自己交过的作业</p>
-        <p>但是发现工作量有点大：</p>
-        <ol>
-            <li>存储对象：虽然现在使用的服务器在广州，但是流量只有1Mpbs。而且性能不咋地，处理下载还是比较吃力的，所以就打算使用<a
-                    href="https://www.qiniu.com/products/kodo">七牛云的对象存储</a>来放文件，有cdn加速、不限速，最重要的是不用钱。所以我得学一下 laravel
-                的存储配置</li>
-            <li>用户授权：避免恶意上传，这就需要再去学一个<a
-                    href="https://learnku.com/articles/5662/two-great-laravel-rights-management-packages-recommended">laravel授权管理的包</a>了
-            </li>
-        </ol>
-        说这么多，是想问有没有童鞋有这个需求。最近事多，这个玩意暂时处于<span class="text-danger">无限期延期</span>
-        <legend>如果你有存储作业或课件的需求</legend>
-        <p>对 laravel 有兴趣的同学去试一下能不能解决上面两个问题，然后可以用 pull request 整合到我的yeek中</p>
-        <p>没兴趣只想用的，<a href="https://github.com/mojuchen/Yeek-Laravel">去GitHub给我个星星</a>支持我一下呗</p>
+        <p class="h3">为了方便我手工分类，请<span  class="text-danger"> 严格遵守 </span>下面的文件名格式</p>
+        <p class="h4">学号+姓名+_+补交第某次作业 例：<span class="text-info">07180935莫奕基_14.zip</span></p>
+        <p id="resp" class="h3"></p>
+        <br>
+        <div id="inputBox" class="p-3">
+            <input id="input-work" name='file' type="file">
+            <h4 id="modal-status" class="mt-3"></h4>
+        </div>
+        <div id="ListBox"></div>
     </div>
 </div>
 
+@endsection
+
+
+@section('javasctipt')
+@parent
+
+<script src=" {{ asset("static/fileinput/js/fileinput.js") }} "></script>
+<script src=" {{ asset("static/fileinput/js/zh.js") }} "></script>
+
+<script>
+    // 设置 CSRF 令牌
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    // 定义上传框
+    var fileinput = $("#input-work")
+
+    // 初始化上传框
+    fileinput.fileinput({
+        theme: 'fas',
+        language: 'zh',
+        uploadUrl: '{{url('work / uploadFile')}}',
+        uploadAsync: true, //默认异步上传
+        // allowedFileExtensions: ['txt', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'zip', 'jpg', 'rar'],
+        uploadUrl: '{{url('work/bujiaoFile')}}',
+        showPreview: false, //是否显示预览
+        showCaption: true, //是否显示标题
+        maxFileSize: 5120, // 限制大小
+        enctype: 'multipart/form-data',
+        browseClass: "btn btn-primary", //按钮样式
+    });
+
+    // ajax 上传中时
+    fileinput.on("filepreajax", function () {
+        $("#modal-status").text("文件上传中。。。");
+    });
+
+    // 上传完成时
+    fileinput.on("fileuploaded", function (event, data, previewId, index) {
+        // alert(data.response.result);
+        $("#modal-status").text(data.response.result);
+    });
+
+    fileinput.on('fileselect', function(event, numFiles, label) {
+        $.get("{{url('work/checkId')}}/" + label,
+            function (data) {
+                if(data.resp){
+                    $("#resp").html("<p>失败</p><p>你选择的文件："+label+"</p>"+data.resp);
+                    fileinput.fileinput('refresh');
+                }else{
+                    $("#resp").html("你选择的文件文件名 成功匹配 ,请上传");
+                }
+                
+            });
+    });
+</script>
 @endsection
