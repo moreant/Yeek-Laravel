@@ -114,7 +114,7 @@
         // allowedFileExtensions: ['txt', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'zip', 'jpg', 'rar'],
         showPreview: false, //是否显示预览
         showCaption: true, //是否显示标题
-        maxFileSize: 5120, // 限制大小
+        maxFileSize: 204800, // 限制大小
         enctype: 'multipart/form-data',
         browseClass: "btn btn-primary", //按钮样式
     });
