@@ -113,13 +113,6 @@ class WorkController extends Controller
         }
     }
 
-    public function netdisc()
-    {
-        return view('work.netdisc',[
-            'title' => 'swift补交'
-        ]);
-    }
-
     public function info($id)
     {
         // dd($request);

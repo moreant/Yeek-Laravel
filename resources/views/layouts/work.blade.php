@@ -64,10 +64,6 @@
                         class="list-group-item  {{ Request::getPathInfo() == '/work/console' ? 'active' : '' }} ">
                         <i class="fa-fw fas fa-tools"></i>
                         控制台</a>
-                    <a href="{{ url('work/netdisc') }}"
-                        class="list-group-item  {{ Request::getPathInfo() == '/work/netdisc' ? 'active' : '' }} ">
-                        <i class="fa-fw fa fa-save"></i>
-                        swift补交</a>
                 </div>
             </div>
             <!-- end 侧边栏 -->

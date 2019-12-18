@@ -28,9 +28,6 @@ Route::group(['middleware' => 'web'], function () {
         Route::any('/uploadFile', 'FileController@input');
         Route::any('/download/{dir}', 'FileController@download');
         Route::any('/fileList', 'FileController@getFileList');
-        // 临时补交
-        Route::any('/bujiaoFile', 'FileController@bujiaoFile');
-        Route::any('/checkId/{name}', 'FileController@checkId');
     });
 });
 
