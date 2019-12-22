@@ -51,7 +51,7 @@
         <div class="row">
             <!-- 侧边栏 -->
             <div class="col-lg-2 mb-3">
-                <div class="list-group">
+                <div class="list-group shadow">
                     <a href="{{ url('work/') }}"
                         class="list-group-item {{ Request::getPathInfo() == '/work' ? 'active' : '' }} ">
                         <i class="fa-fw fas fa-bookmark"></i>

@@ -40,7 +40,7 @@
 {{-- 正文 --}}
 @section('content')
 
-<div class="card">
+<div class="card shadow">
     <div class="card-header h4">{{ $title }}</div>
     <div class="card-body table-responsive">
         <table class="table table-hover" style="min-width: 900px">
@@ -96,6 +96,8 @@
 <script src=" {{ asset("static/fileinput/js/zh.js") }} "></script>
 
 <script>
+    $("[role=navigation]").addClass("shadow")
+
     // 设置 CSRF 令牌
     $.ajaxSetup({
         headers: {
