@@ -47,6 +47,7 @@
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>科目</th>
                     <th>作业</th>
                     <th>开始</th>
                     <th>截止</th>
@@ -59,7 +60,8 @@
                 @foreach ($works as $work)
                 <tr>
                     <td>{{ $work->id }}</td>
-                    <td>{!! $work->course->icon !!}{{ $work->name }}</td>
+                    <td>{!! $work->course->icon !!}{{$work->course->name}}</td>
+                    <td>{{$work->name}}</td>
                     <td style="min-width:5em">{{ substr($work->start,5) }}</td>
                     <td style="min-width:5em">{{ substr($work->end,5) }}</td>
                     <td>{!! $work->remarks !!}</td>
