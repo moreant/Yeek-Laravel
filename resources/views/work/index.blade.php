@@ -111,7 +111,7 @@
     fileinput.fileinput({
         theme: 'fas',
         language: 'zh',
-        uploadUrl: '{{url('work / uploadFile')}}',
+        uploadUrl: '{{url("work/uploadFile")}}',
         uploadAsync: true, //默认异步上传
         // allowedFileExtensions: ['txt', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'zip', 'jpg', 'rar'],
         showPreview: false, //是否显示预览
@@ -150,24 +150,23 @@
                 $(".modal-body .h3").html(data.course.icon + ' ' + data.course.name + ' - ' + data.name);
                 if (type) {
                     fileinput.fileinput('refresh', {
-                        uploadUrl: '{{url('work/uploadFile')}}',
+                        uploadUrl: '{{url("work/uploadFile")}}',
                         uploadExtraData: {
                             'info': JSON.stringify(data)
                         }
                     }).fileinput('clear');
-                }else{
+                } else {
                     $.post("{{url('work/fileList')}}/", {
-                        'info': JSON.stringify(data)
-                    },
-                    function (data) {
-                        $.each(data.fileList, function (i, val) {
-                            $('#ListBox').append('<p>' + val + '</p>')
+                            'info': JSON.stringify(data)
+                        },
+                        function (data) {
+                            $.each(data.fileList, function (i, val) {
+                                $('#ListBox').append('<p>' + val + '</p>')
+                            });
                         });
-                    });
                 }
             });
     }
-
 
 </script>
 @endsection

@@ -28,6 +28,7 @@
             background: url('{{ asset('img/banner-2.jpg') }}') 0 80%;
             background-size: cover;
         }
+
     </style>
     @show
 </head>
@@ -58,8 +59,8 @@
                         class="list-group-item {{ Request::getPathInfo() == '/ftp' ? 'active' : '' }} "><i
                             class="fa fa-list"></i> 全部</a>
                     {{-- <a href="{{ url('ftp/console') }}"
-                        class="list-group-item  {{ Request::getPathInfo() == '/work/console' ? 'active' : '' }} "><i
-                            class="fa fa-plus-square"></i> 控制台</a> --}}
+                    class="list-group-item {{ Request::getPathInfo() == '/work/console' ? 'active' : '' }} "><i
+                        class="fa fa-plus-square"></i> 控制台</a> --}}
                 </div>
             </div>
             <!-- end 侧边栏 -->
@@ -94,7 +95,7 @@
                             <td>{{$item->classroom}}</td>
                             <td>{{$item->name}}</td>
                             <td>{{$item->ftp}}</td>
-                           
+
                         </tr>
                         @endforeach
                     </tbody>
@@ -109,13 +110,16 @@
 
     <!-- 页脚 -->
     @component('common.footer')
-        
+
     @endcomponent
     <!-- end 页脚 -->
 
     <script src="https://cdn.bootcss.com/font-awesome/5.10.2/js/all.js"></script>
     <script src="{{asset('/static/jquery.min.js')}}"></script>
     <script src="{{asset('/static/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script>
+        $('[href="/ftp"]').addClass("active")
+    </script>
     @section('javasctipt')
 
     @show

@@ -18,12 +18,13 @@
         body {
             font-family: 'Noto Sans SC', sans-serif;
         }
-        
+
         .banner {
             /* 这个是我偷 next 的，Link=>http://theme-next.iissnan.com/ */
             background: url('{{ asset('img/work-banner.jpg') }}') 0 80%;
             background-size: cover;
         }
+
     </style>
     @show
 </head>
@@ -102,6 +103,10 @@
     <script src="https://cdn.bootcss.com/font-awesome/5.10.2/js/all.js"></script>
     <script src="{{asset('/static/jquery.min.js')}}"></script>
     <script src="{{asset('/static/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script>
+        $('[href="/work"]').addClass("active")
+
+    </script>
     @section('javasctipt')
 
     @show
