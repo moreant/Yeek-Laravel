@@ -77,7 +77,7 @@ class FileController extends Controller
 
         $files = Storage::files($dir);
         if (empty($files)) {
-            return response()->json(['fileList' => array('文件夹为空')]);
+            return response()->json(['fileList' => array('全部未交')]);
         }
 
         $i = 0;
