@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title','FTP列表') | Yeek</title>
     <link rel="stylesheet" href="{{asset('/static/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,500,700&display=swap" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome/5.10.2/css/all.css" rel="stylesheet">
     @section('link')
 
@@ -20,7 +19,7 @@
         }
 
         body {
-            font-family: 'Noto Sans SC', sans-serif;
+            font-family: sans-serif, 'Noto Sans SC';
         }
 
         .banner {
@@ -119,6 +118,7 @@
     <script src="{{asset('/static/bootstrap/js/bootstrap.min.js')}}"></script>
     <script>
         $('[href="/ftp"]').addClass("active")
+
     </script>
     @section('javasctipt')
 

@@ -7,8 +7,7 @@
 
     <title>Laravel</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,500,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset('/static/bootstrap/css/bootstrap.min.css')}}">
     <script src="{{asset('/static/jquery.min.js')}}"></script>
@@ -16,7 +15,7 @@
     <!-- Styles -->
     <style>
         body {
-            font-family: 'Noto Sans SC', sans-serif;
+            font-family: 'Noto Sans SC';
         }
 
         .banner-img {
@@ -125,7 +124,7 @@
                 <div class="d-flex flex-lg-row flex-column p-5 justify-content-around align-items-center">
                     <div><img src="img/aliyun.png" class="media-img"></div>
                     <div>
-                        <h2 class="mb-3 mt-3">云服务器</h2>
+                        <h2 class="mb-3 mt-3 font-weight-bold">云服务器</h2>
                         <h4>使用阿里云 ECS 云服务器</h4>
                         <h4>7*24 小时运行，高性能云盘</h4>
                     </div>
@@ -135,7 +134,7 @@
                 <div class="container p-5">
                     <div class="d-flex flex-lg-row flex-column-reverse p-5 justify-content-around align-items-center ">
                         <div>
-                            <h2 class="mb-3 mt-3">融合 CDN</h2>
+                            <h2 class="mb-3 mt-3 font-weight-bold">融合 CDN</h2>
                             <h4>七牛云融合 CDN 加速</h4>
                             <h4>近获取所需内容，更快、更稳定</h4>
                         </div>
@@ -147,7 +146,7 @@
                 <div class="d-flex flex-lg-row flex-column p-5 justify-content-around align-items-center ">
                     <div><img src="img/docker.png" class="media-img" alt=""></div>
                     <div>
-                        <h2 class="mb-3 mt-3">Docker</h2>
+                        <h2 class="mb-3 mt-3 font-weight-bold">Docker</h2>
                         <h4>使用 Docker 部署 LNMP 环境</h4>
                         <h4>标准化快速部署，资源开销低</h4>
                     </div>
@@ -158,7 +157,7 @@
                 <div class="container p-5">
                     <div class="d-flex flex-lg-row flex-column-reverse p-5 justify-content-around align-items-center">
                         <div>
-                            <h2 class="mb-3 mt-3">Nginx</h2>
+                            <h2 class="mb-3 mt-3 font-weight-bold">Nginx</h2>
                             <h4>选择高性能的 HTTP WEB 服务器</h4>
                             <h4>配合云解析 DNS，显著降低应答延迟</h4>
                         </div>
@@ -171,7 +170,7 @@
                 <div class="d-flex flex-lg-row flex-column p-5 justify-content-around align-items-center ">
                     <div><img src="img/laravel.png" class="media-img" alt="" style=""></div>
                     <div>
-                        <h2 class="mb-3 mt-3">Laravel</h2>
+                        <h2 class="mb-3 mt-3 font-weight-bold">Laravel</h2>
                         <h4>优雅的 PHP Web 开发框架</h4>
                         <h4>采用 MVC 设计，是最受关注的 PHP 框架</h4>
                     </div>
