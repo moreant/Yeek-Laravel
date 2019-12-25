@@ -19,7 +19,7 @@
         }
 
         body {
-            font-family: sans-serif, 'Noto Sans SC';
+            font-family: 'Noto Sans SC';
         }
 
         .banner {

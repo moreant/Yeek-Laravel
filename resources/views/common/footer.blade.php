@@ -1,9 +1,19 @@
 <style>
     footer a {
-        color: #6c757d !important;
+        color: #f8f9fa !important;
     }
+
+    footer {
+        color:#bdc3c7;
+        background-color: #343a40;
+    }
+
+    footer h4 {
+        color: #f8f9fa;
+    }
+
 </style>
-<footer class="jumbotron mt-5" style="margin:0;padding:2rem 1rem;">
+<footer class="mt-5" style="margin:0;padding:2rem 1rem;">
     <div class="container">
         <div class="row mb-3">
             <div class="col-md-4">
@@ -36,7 +46,7 @@
             </div>
         </div>
         <div class="text-center small">
-            学习即输入输出
+            <span>学习即输入输出</span>
             <br>
             <a target="_blank" href="http://beian.miit.gov.cn/">粤ICP备19003211号-1</a>
             <span class="ml-2 mr-2">|</span>
