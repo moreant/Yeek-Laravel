@@ -39,20 +39,23 @@
             <p>期待更好的春天</p>
         </main>
         <footer class="mastfoot mt-auto">
-            
-                    <small>
-                        design by
-                        <a href="https://getbootstrap.com/docs/4.4/examples/cover/">mdo</a>
-                        <span class="mx-2">|</span>
-                        粤ICP备19003211号-1
-                        <span class="mx-2">|</span>
-                        <a target="_blank"
-                            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44011102002523">
-                            粤公网安备44011102002523号
-                        </a>
-                    </small>
-              
-            
+            <small>
+                design by
+                <a href="https://getbootstrap.com/docs/4.4/examples/cover/">mdo</a>
+                @if (strpos('yeek',url('')))
+                <span class="mx-2">|</span>
+                粤ICP备19003211号-1
+                <span class="mx-2">|</span>
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44011102002523">
+                    粤公网安备44011102002523号
+                </a>
+                @elseif (strpos('mojuchen',url('')))
+                
+                @endif
+
+            </small>
+
+
         </footer>
     </div>
 </body>
