@@ -26,11 +26,11 @@
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
         <header class="masthead mb-auto">
             <div>
-                <h3 class="masthead-brand">Yeek</h3>
+                <h3 class="masthead-brand">一客 | 莫居尘</h3>
                 <nav class="nav nav-masthead justify-content-center">
                     <a class="nav-link active" href="#">首页</a>
-                    <a class="nav-link" href="https://moreant.github.io">博客</a>
-                    <a class="nav-link" href="http://drive.yeek.top">网盘</a>
+                    {{-- <a class="nav-link" href="https://moreant.github.io">博客</a>
+                    <a class="nav-link" href="http://drive.yeek.top">网盘</a> --}}
                 </nav>
             </div>
         </header>
@@ -42,16 +42,14 @@
             <small>
                 design by
                 <a href="https://getbootstrap.com/docs/4.4/examples/cover/">mdo</a>
-                @if (strpos('yeek',url('')))
+                {{-- @if (strpos('yeek',url('')))
                 <span class="mx-2">|</span>
                 粤ICP备19003211号-1
                 <span class="mx-2">|</span>
                 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44011102002523">
                     粤公网安备44011102002523号
                 </a>
-                @elseif (strpos('mojuchen',url('')))
-                
-                @endif
+                @endif --}}
 
             </small>
 
