@@ -42,7 +42,6 @@
             <small>
                 design by
                 <a href="https://getbootstrap.com/docs/4.4/examples/cover/">mdo</a>
-               
                 <span class="mx-2">|</span>
                 <a href="http://beian.miit.gov.cn/">粤ICP备19003211号</a>
                 <span class="mx-2">|</span>
