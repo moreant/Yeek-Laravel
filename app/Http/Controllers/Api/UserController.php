@@ -24,8 +24,16 @@ class UserController extends Controller
                 "roles" => ["admin"],
                 "introduction" => "超级管理员",
                 "avatar" => "http://markdown.yeek.top/bolg/20191029/b8Ytj5Mons6f.jpg?imageslim",
-                "name" => "Admin"
+                "name" => "admin"
             ],
+        ]);
+    }
+
+    public function logout()
+    {
+        return response()->json([
+            'code' => 20000,
+            'data' => "success"
         ]);
     }
 }
