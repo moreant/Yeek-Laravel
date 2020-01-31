@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('myWelcome');
 });
 
+
+
 Route::group(['middleware' => 'web'], function () {
     Route::prefix('work')->group(function () {
         Route::get('/', 'WorkController@index')->name('work');

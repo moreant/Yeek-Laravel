@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Storage;
 
 class WorkController extends Controller
 {
+
+    public function login()
+    {
+        return "Hello";
+    }
+
     public function index()
     {
         $works = Work::orderBy('id', 'abs')->where('end', '>', date('Y-m-d'))->with('course')->paginate(10);
