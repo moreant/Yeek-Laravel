@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('user')->group(function () {
     Route::any('login', 'Api\UserController@login');
     Route::any('info', 'Api\UserController@info');
+    Route::any('logout', 'Api\UserController@logout');
 });
