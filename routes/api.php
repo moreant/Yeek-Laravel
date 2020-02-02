@@ -22,3 +22,8 @@ Route::prefix('user')->group(function () {
     Route::any('info', 'Api\UserController@info');
     Route::any('logout', 'Api\UserController@logout');
 });
+
+Route::prefix('work')->group(function () {
+    Route::any('info', 'Api\WorkController@info');
+    Route::any('upload', 'Api\WorkController@upload');
+});
